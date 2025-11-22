@@ -49,6 +49,7 @@ function App() {
               matches={liveMatches}
               title="LIVE EVENTS"
               onMatchClick={setSelectedMatch}
+              glitch={true}
             />
           )}
           {upcomingMatches.length > 0 && (

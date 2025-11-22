@@ -17,9 +17,27 @@ module.exports = {
                 mono: ['Orbitron', 'monospace'],
             },
             animation: {
+                'glitch': 'glitch 3s cubic-bezier(.25, .46, .45, .94) both infinite',
                 'pulse-neon': 'pulse-neon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             },
             keyframes: {
+                'glitch': {
+                    '0%': {
+                        textShadow: '1px 0 #ff003c, -1px 0 #00f0ff',
+                    },
+                    '5%': {
+                        textShadow: '-1px 0 #ff003c, 1px 0 #00f0ff',
+                    },
+                    '10%': {
+                        textShadow: '2.5px 0 #ff003c, -2.5px 0 #00f0ff',
+                    },
+                    '15%': {
+                        textShadow: '-2.5px 0 #ff003c, 2.5px 0 #00f0ff',
+                    },
+                    '20%, 100%': {
+                        textShadow: 'none',
+                    }
+                },
                 'pulse-neon': {
                     '0%': {
                         opacity: 1,

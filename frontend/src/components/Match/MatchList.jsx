@@ -1,7 +1,7 @@
 import React from 'react';
 import MatchCard from './MatchCard';
 
-const MatchList = ({ matches, title, onMatchClick }) => {
+const MatchList = ({ matches, title, onMatchClick, glitch = false }) => {
     if (!matches || matches.length === 0) {
         return (
             <div className="text-center py-12 border border-dashed border-cyber-gray rounded-lg">
@@ -12,7 +12,7 @@ const MatchList = ({ matches, title, onMatchClick }) => {
 
     return (
         <div className="mb-12">
-            <h2 className="text-2xl font-mono font-bold text-white mb-6 flex items-center gap-3">
+            <h2 className={`text-2xl font-mono font-bold text-white mb-6 flex items-center gap-3 ${glitch ? 'animate-glitch' : ''}`}>
                 <span className="w-1 h-6 bg-cyber-pink"></span>
                 {title}
             </h2>
