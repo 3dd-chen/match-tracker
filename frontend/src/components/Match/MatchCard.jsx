@@ -60,9 +60,9 @@ const MatchCard = ({ match, onClick }) => {
                     </div>
                 </div>
 
-                {/* Footer Info */}
-                <div className="flex justify-between items-center pt-4 border-t border-white/10">
-                    <div className="flex items-center gap-4 text-sm text-gray-400">
+                {/* Match Info / Status Details */}
+                <div className="mt-4 pt-4 border-t border-cyber-gray/50 flex justify-between items-center text-sm">
+                    <div className="flex items-center gap-4 text-gray-400">
                         <div className="flex items-center gap-1.5">
                             <Calendar size={14} />
                             <span>{format(new Date(match.startTime), 'MMM dd')}</span>
@@ -73,7 +73,24 @@ const MatchCard = ({ match, onClick }) => {
                         </div>
                     </div>
 
-                    {match.streamUrl && (
+                    {/* Live: Current Map */}
+                    {isLive && match.currentMap && (
+                        <div className="font-mono text-cyber-neon-green text-xs">
+                            PLAYING ON: <span className="font-bold text-white">{match.currentMap}</span>
+                        </div>
+                    )}
+
+                    {/* Ended: Winner */}
+                    {isEnded && match.winner && (
+                        <div className="font-mono text-cyber-cyan text-xs">
+                            WINNER: <span className="font-bold text-white">{match.winner}</span>
+                        </div>
+                    )}
+                </div>
+
+                {/* Footer Stream Link */}
+                {match.streamUrl && (
+                    <div className="mt-4 pt-2 border-t border-white/5 flex justify-end">
                         <a
                             href={match.streamUrl}
                             target="_blank"
@@ -84,8 +101,8 @@ const MatchCard = ({ match, onClick }) => {
                             <Monitor size={14} />
                             Watch Stream
                         </a>
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
 
             {/* Hover Effect Overlay */}

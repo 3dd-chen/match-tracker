@@ -9,6 +9,7 @@ module.exports = {
                 'cyber-yellow': '#fcee0a',
                 'cyber-cyan': '#00f0ff',
                 'cyber-pink': '#ff003c',
+                'cyber-neon-green': '#4bff21',
                 'cyber-black': '#050505',
                 'cyber-gray': '#1a1a1a',
             },

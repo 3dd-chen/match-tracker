@@ -5,6 +5,7 @@ const MatchDetailsModal = ({ match, onClose }) => {
     if (!match) return null;
 
     const isLive = match.status.toLowerCase() === 'live';
+    const isEnded = match.status.toLowerCase() === 'ended';
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -31,6 +32,20 @@ const MatchDetailsModal = ({ match, onClose }) => {
                                 <span className="text-gray-500">|</span>
                                 <span>{match.stage}</span>
                             </div>
+
+                            {/* Live: Current Map */}
+                            {isLive && match.currentMap && (
+                                <div className="mt-2 font-mono text-cyber-neon-green text-sm">
+                                    PLAYING ON: <span className="font-bold text-white">{match.currentMap}</span>
+                                </div>
+                            )}
+
+                            {/* Ended: Winner */}
+                            {isEnded && match.winner && (
+                                <div className="mt-2 font-mono text-cyber-cyan text-sm">
+                                    WINNER: <span className="font-bold text-white">{match.winner}</span>
+                                </div>
+                            )}
                         </div>
                     </div>
                     <button
