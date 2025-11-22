@@ -13,7 +13,7 @@ const MatchCard = ({ match, onClick }) => {
     if (isLive) {
         statusColor = 'text-cyber-pink';
         borderColor = 'border-cyber-pink';
-        glowClass = 'shadow-[0_0_15px_rgba(255,0,60,0.3)]';
+        glowClass = 'shadow-[0_0_25px_rgba(255,0,60,0.6)] animate-pulse-neon';
     } else if (!isEnded) {
         statusColor = 'text-cyber-yellow';
         borderColor = 'border-cyber-yellow';
@@ -31,7 +31,7 @@ const MatchCard = ({ match, onClick }) => {
             {/* Status Badge */}
             <div className="absolute top-0 right-0 bg-black/50 backdrop-blur px-3 py-1 border-b border-l border-cyber-gray z-10">
                 <span className={`font-mono text-xs font-bold uppercase ${statusColor} flex items-center gap-2`}>
-                    {isLive && <span className="w-2 h-2 bg-cyber-pink rounded-full animate-pulse"></span>}
+                    {isLive && <span className="w-3 h-3 bg-cyber-pink rounded-full animate-pulse shadow-[0_0_8px_rgba(255,0,60,0.8)]"></span>}
                     {match.status}
                 </span>
             </div>
@@ -56,7 +56,7 @@ const MatchCard = ({ match, onClick }) => {
 
                     <div className="flex-1 text-right">
                         <h3 className="text-xl font-bold text-white group-hover:text-cyber-pink transition-colors">{match.teams[1]}</h3>
-                        {match.score && <div className="text-2xl font-mono font-bold text- mt-1">{match.score[match.teams[1]]}</div>}
+                        {match.score && <div className="text-2xl font-mono font-bold text-cyber-yellow mt-1">{match.score[match.teams[1]]}</div>}
                     </div>
                 </div>
 

@@ -17,18 +17,22 @@ module.exports = {
                 mono: ['Orbitron', 'monospace'],
             },
             animation: {
-                'glitch': 'glitch 1s linear infinite',
                 'pulse-neon': 'pulse-neon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             },
             keyframes: {
-                glitch: {
-                    '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
-                    '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
-                    '62%': { transform: 'translate(0,0) skew(5deg)' },
-                },
                 'pulse-neon': {
-                    '0%, 100%': { opacity: 1, boxShadow: '0 0 5px #00f0ff, 0 0 10px #00f0ff' },
-                    '50%': { opacity: .5, boxShadow: '0 0 2px #00f0ff, 0 0 5px #00f0ff' },
+                    '0%': {
+                        opacity: 1,
+                        boxShadow: '0 0 20px rgba(255,0,60,0.8), 0 0 40px rgba(255,0,60,0.4)'
+                    },
+                    '50%': {
+                        opacity: 0.7,
+                        boxShadow: '0 0 10px rgba(255,0,60,0.4), 0 0 20px rgba(255,0,60,0.2)'
+                    },
+                    '100%': {
+                        opacity: 1,
+                        boxShadow: '0 0 20px rgba(255,0,60,0.8), 0 0 40px rgba(255,0,60,0.4)'
+                    },
                 }
             }
         },
