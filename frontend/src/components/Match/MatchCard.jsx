@@ -25,8 +25,18 @@ const MatchCard = ({ match, onClick }) => {
             className={`relative bg-cyber-gray border ${borderColor} ${glowClass} p-0 overflow-hidden group transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,240,255,0.2)] cursor-pointer`}
         >
             {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 bg-white z-10"></div>
+            {/* Top-left accent removed to make room for Game Badge */}
             <div className="absolute bottom-0 right-0 w-2 h-2 bg-white z-10"></div>
+
+            {/* Game Badge */}
+            <div
+                className="absolute top-0 left-0 bg-gradient-to-r from-cyber-pink to-purple-600 px-4 py-1 z-10 shadow-[0_0_15px_rgba(255,0,60,0.4)]"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)' }}
+            >
+                <span className="font-mono text-xs font-bold uppercase text-white tracking-wider pr-2">
+                    {match.game}
+                </span>
+            </div>
 
             {/* Status Badge */}
             <div className="absolute top-0 right-0 bg-black/50 backdrop-blur px-3 py-1 border-b border-l border-cyber-gray z-10">
@@ -36,7 +46,7 @@ const MatchCard = ({ match, onClick }) => {
                 </span>
             </div>
 
-            <div className="p-6">
+            <div className="px-6 pb-6 pt-12">
                 {/* Tournament Info */}
                 <div className="flex items-center gap-2 mb-4 text-gray-400 text-xs font-mono uppercase tracking-wider">
                     <Trophy size={14} className="text-cyber-cyan" />

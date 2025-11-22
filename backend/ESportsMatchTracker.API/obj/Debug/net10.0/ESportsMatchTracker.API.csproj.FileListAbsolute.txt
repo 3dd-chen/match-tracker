@@ -61,3 +61,4 @@ D:\repos\ai_test_projects\antigravity\backend\ESportsMatchTracker.API\obj\Debug\
 D:\repos\ai_test_projects\antigravity\backend\ESportsMatchTracker.API\obj\Debug\net10.0\ESportsMatchTracker.API.pdb
 D:\repos\ai_test_projects\antigravity\backend\ESportsMatchTracker.API\obj\Debug\net10.0\ESportsMatchTracker.API.genruntimeconfig.cache
 D:\repos\ai_test_projects\antigravity\backend\ESportsMatchTracker.API\obj\Debug\net10.0\ref\ESportsMatchTracker.API.dll
+D:\repos\ai_test_projects\antigravity\backend\ESportsMatchTracker.API\obj\Debug\net10.0\ESportsMatchTracker.API.sourcelink.json

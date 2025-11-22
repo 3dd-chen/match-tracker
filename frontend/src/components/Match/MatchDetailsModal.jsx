@@ -28,6 +28,8 @@ const MatchDetailsModal = ({ match, onClose }) => {
                             </h2>
                             <div className="flex items-center gap-2 text-sm text-cyber-cyan font-mono">
                                 <Trophy size={14} />
+                                <span className="text-cyber-pink font-bold">{match.game}</span>
+                                <span className="text-gray-500">|</span>
                                 <span>{match.tournament}</span>
                                 <span className="text-gray-500">|</span>
                                 <span>{match.stage}</span>

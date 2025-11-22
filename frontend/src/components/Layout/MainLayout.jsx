@@ -11,6 +11,9 @@ const MainLayout = ({ children }) => {
                 }}>
             </div>
 
+            {/* Cyberpunk Color Glow Overlay */}
+            <div className="fixed inset-0 z-0 opacity-80 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,_rgba(176,0,255,0.5),_rgba(5,5,5,0)_60%),_radial-gradient(circle_at_80%_20%,_rgba(0,81,255,0.5),_rgba(5,5,5,0)_50%),_radial-gradient(circle_at_20%_80%,_rgba(255,6,119,0.5),_rgba(5,5,5,0)_50%)]"></div>
+
             {/* Header */}
             <header className="relative z-10 border-b border-cyber-gray bg-cyber-black/90 backdrop-blur-sm sticky top-0">
                 <div className="container mx-auto px-4 py-4 flex justify-between items-center">
