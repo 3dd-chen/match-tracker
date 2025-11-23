@@ -7,12 +7,12 @@ namespace ESportsMatchTracker.API;
 [Route("api/[controller]")]
 public class MatchController : ControllerBase
 {
-    private readonly MatchService _matchService;
+    private readonly IMatchService _matchService;
     private readonly IMemoryCache _cache;
     private readonly AppDbContext _dbContext;
     private const string CacheKey = "matches";
 
-    public MatchController(MatchService matchService, IMemoryCache cache, AppDbContext dbContext)
+    public MatchController(IMatchService matchService, IMemoryCache cache, AppDbContext dbContext)
     {
         _matchService = matchService;
         _cache = cache;

@@ -33,9 +33,18 @@ const MatchCard = ({ match, onClick }) => {
                 className="absolute top-0 left-0 bg-gradient-to-r from-cyber-pink to-purple-600 px-4 py-1 z-10 shadow-[0_0_15px_rgba(255,0,60,0.4)]"
                 style={{ clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)' }}
             >
-                <span className="font-mono text-xs font-bold uppercase text-white tracking-wider pr-2">
-                    {match.game}
-                </span>
+                <div className="flex items-center gap-2">
+                    {match.game.toLowerCase() === 'valorant' && (
+                        <img 
+                            src="/images/valorant/logo.png" 
+                            alt="VALORANT" 
+                            className="w-4 h-4 object-contain"
+                        />
+                    )}
+                    <span className="font-mono text-xs font-bold uppercase text-white tracking-wider pr-2">
+                        {match.game}
+                    </span>
+                </div>
             </div>
 
             {/* Status Badge */}
@@ -58,15 +67,15 @@ const MatchCard = ({ match, onClick }) => {
                 {/* Teams */}
                 <div className="flex justify-between items-center mb-6">
                     <div className="flex-1 text-left">
-                        <h3 className="text-xl font-bold text-white group-hover:text-cyber-cyan transition-colors">{match.teams[0]}</h3>
-                        {match.score && <div className="text-2xl font-mono font-bold text-cyber-yellow mt-1">{match.score[match.teams[0]]}</div>}
+                        <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">{match.teams[0]}</h3>
+                        {match.score && <div className="text-2xl font-mono font-bold text-white group-hover:text-blue-400 transition-colors mt-1">{match.score[match.teams[0]]}</div>}
                     </div>
 
                     <div className="px-4 text-gray-500 font-mono text-sm">VS</div>
 
                     <div className="flex-1 text-right">
-                        <h3 className="text-xl font-bold text-white group-hover:text-cyber-pink transition-colors">{match.teams[1]}</h3>
-                        {match.score && <div className="text-2xl font-mono font-bold text-cyber-yellow mt-1">{match.score[match.teams[1]]}</div>}
+                        <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors">{match.teams[1]}</h3>
+                        {match.score && <div className="text-2xl font-mono font-bold text-white group-hover:text-red-400 transition-colors mt-1">{match.score[match.teams[1]]}</div>}
                     </div>
                 </div>
 

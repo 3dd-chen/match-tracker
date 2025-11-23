@@ -2,7 +2,12 @@ using System.Text.Json;
 
 namespace ESportsMatchTracker.API;
 
-public class MatchService
+public interface IMatchService
+{
+    Task<List<Match>> GetAllMatchesAsync();
+}
+
+public class MatchService : IMatchService
 {
     private readonly string _dummyFeedPath;
 

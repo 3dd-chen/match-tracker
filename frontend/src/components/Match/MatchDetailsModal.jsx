@@ -23,12 +23,12 @@ const MatchDetailsModal = ({ match, onClose }) => {
                     <div className="flex items-center gap-4">
                         <div className={`w-2 h-8 ${isLive ? 'bg-cyber-pink animate-pulse' : 'bg-cyber-cyan'}`}></div>
                         <div>
-                            <h2 className="text-2xl font-mono font-bold text-white uppercase tracking-wider">
-                                {match.teams[0]} <span className="text-cyber-gray mx-2">VS</span> {match.teams[1]}
+                            <h2 className="text-2xl font-mono font-bold uppercase tracking-wider">
+                                <span className="text-blue-400">{match.teams[0]}</span> <span className="text-cyber-gray mx-2">VS</span> <span className="text-red-400">{match.teams[1]}</span>
                             </h2>
-                            <div className="flex items-center gap-2 text-sm text-cyber-cyan font-mono">
-                                <Trophy size={14} />
-                                <span className="text-cyber-pink font-bold">{match.game}</span>
+                            <div className="flex items-center gap-2 text-sm text-white font-mono">
+                                <Trophy size={14} className="text-cyber-cyan" />
+                                <span className="font-bold">{match.game}</span>
                                 <span className="text-gray-500">|</span>
                                 <span>{match.tournament}</span>
                                 <span className="text-gray-500">|</span>
@@ -61,24 +61,75 @@ const MatchDetailsModal = ({ match, onClose }) => {
                 {/* Body */}
                 <div className="flex-1 overflow-y-auto p-6 space-y-8">
 
-                    {/* Stream Embed (Placeholder) */}
-                    {match.streamUrl && (
-                        <div className="aspect-video bg-black border border-cyber-gray relative group overflow-hidden">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="text-center">
-                                    <Monitor size={48} className="mx-auto text-cyber-gray mb-4" />
-                                    <p className="text-gray-500 font-mono">STREAM FEED ENCRYPTED</p>
+                    {/* Highlight Video for Ended Matches / Stream Placeholder for Live */}
+                    {(isEnded || match.streamUrl) && (
+                        <div className="space-y-4">
+                            <div className="aspect-video bg-black border border-cyber-gray relative overflow-hidden transition-opacity duration-1000">
+                                {isEnded ? (
+                                    /* Highlight Video Player */
+                                    <video 
+                                        className="w-full h-full object-cover"
+                                        controls
+                                        autoPlay
+                                        onLoadedMetadata={(e) => {
+                                            e.target.volume = 0.5;
+                                        }}
+                                        onPlay={(e) => {
+                                            e.target.parentElement.classList.remove('opacity-30');
+                                        }}
+                                        onEnded={(e) => {
+                                            e.target.parentElement.classList.add('opacity-30');
+                                        }}
+                                    >
+                                        <source src="/videos/valorant/highlight.mp4" type="video/mp4" />
+                                        Your browser does not support the video tag.
+                                    </video>
+                                ) : (
+                                    /* Stream Placeholder for Live/Scheduled */
+                                    <div className="absolute inset-0">
+                                        {isLive ? (
+                                            /* Live - Show Live Video */
+                                            <video 
+                                                className="w-full h-full object-cover"
+                                                controls
+                                                autoPlay
+                                                loop
+                                                onLoadedMetadata={(e) => {
+                                                    e.target.volume = 0.5;
+                                                }}
+                                            >
+                                                <source src="/videos/valorant/live.mp4" type="video/mp4" />
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        ) : (
+                                            /* Scheduled - Show Offline Image */
+                                            <div className="flex items-center justify-center h-full">
+                                                <img 
+                                                    src="/images/valorant/offline.jpg" 
+                                                    alt="Stream Offline" 
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                            
+                            {/* Stream Link Below Video */}
+                            {match.streamUrl && (
+                                <div className="flex justify-center">
                                     <a
                                         href={match.streamUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-block mt-4 px-6 py-2 bg-cyber-pink text-white font-bold font-mono hover:bg-red-600 transition-colors clip-path-polygon"
+                                        className="inline-flex items-center gap-2 px-6 py-2 bg-cyber-pink text-white font-bold font-mono hover:bg-red-600 transition-colors"
                                         style={{ clipPath: 'polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)' }}
                                     >
-                                        OPEN EXTERNAL LINK
+                                        <Monitor size={16} />
+                                        OPEN EXTERNAL STREAM
                                     </a>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     )}
 
@@ -95,9 +146,9 @@ const MatchDetailsModal = ({ match, onClose }) => {
                                     <div key={index} className="bg-cyber-gray/30 p-3 border-l-2 border-cyber-cyan flex justify-between items-center">
                                         <span className="font-mono text-white">{map.map}</span>
                                         <div className="font-mono font-bold">
-                                            <span className="text-cyber-cyan">{map.score[match.teams[0]]}</span>
+                                            <span className="text-blue-400">{map.score[match.teams[0]]}</span>
                                             <span className="mx-2 text-gray-600">:</span>
-                                            <span className="text-cyber-pink">{map.score[match.teams[1]]}</span>
+                                            <span className="text-red-400">{map.score[match.teams[1]]}</span>
                                         </div>
                                     </div>
                                 ))}

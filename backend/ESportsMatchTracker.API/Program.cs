@@ -12,7 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=esports.db"));
 
 // Add Match Service
-builder.Services.AddScoped<MatchService>();
+builder.Services.AddScoped<IMatchService, MatchService>();
 
 // Add CORS
 builder.Services.AddCors();
