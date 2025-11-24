@@ -1,9 +1,10 @@
-using ESportsMatchTracker.API;
+using ESportsMatchTracker.API.Models;
+using ESportsMatchTracker.API.Services;
 using Microsoft.AspNetCore.Hosting;
 using Moq;
 using System.Text.Json;
 using Xunit;
-using Match = ESportsMatchTracker.API.Match;
+using Match = ESportsMatchTracker.API.Models.Match;
 
 namespace ESportsMatchTracker.Tests;
 

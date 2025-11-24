@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Map, Trophy, Monitor, Crosshair } from 'lucide-react';
+import VideoPlayer from './VideoPlayer';
 
 const MatchDetailsModal = ({ match, onClose }) => {
     if (!match) return null;
@@ -64,56 +65,7 @@ const MatchDetailsModal = ({ match, onClose }) => {
                     {/* Highlight Video for Ended Matches / Stream Placeholder for Live */}
                     {(isEnded || match.streamUrl) && (
                         <div className="space-y-4">
-                            <div className="aspect-video bg-black border border-cyber-gray relative overflow-hidden transition-opacity duration-1000">
-                                {isEnded ? (
-                                    /* Highlight Video Player */
-                                    <video 
-                                        className="w-full h-full object-cover"
-                                        controls
-                                        autoPlay
-                                        onLoadedMetadata={(e) => {
-                                            e.target.volume = 0.5;
-                                        }}
-                                        onPlay={(e) => {
-                                            e.target.parentElement.classList.remove('opacity-30');
-                                        }}
-                                        onEnded={(e) => {
-                                            e.target.parentElement.classList.add('opacity-30');
-                                        }}
-                                    >
-                                        <source src="/videos/valorant/highlight.mp4" type="video/mp4" />
-                                        Your browser does not support the video tag.
-                                    </video>
-                                ) : (
-                                    /* Stream Placeholder for Live/Scheduled */
-                                    <div className="absolute inset-0">
-                                        {isLive ? (
-                                            /* Live - Show Live Video */
-                                            <video 
-                                                className="w-full h-full object-cover"
-                                                controls
-                                                autoPlay
-                                                loop
-                                                onLoadedMetadata={(e) => {
-                                                    e.target.volume = 0.5;
-                                                }}
-                                            >
-                                                <source src="/videos/valorant/live.mp4" type="video/mp4" />
-                                                Your browser does not support the video tag.
-                                            </video>
-                                        ) : (
-                                            /* Scheduled - Show Offline Image */
-                                            <div className="flex items-center justify-center h-full">
-                                                <img 
-                                                    src="/images/valorant/offline.jpg" 
-                                                    alt="Stream Offline" 
-                                                    className="w-full h-full object-cover"
-                                                />
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
+                            <VideoPlayer match={match} isLive={isLive} isEnded={isEnded} />
                             
                             {/* Stream Link Below Video */}
                             {match.streamUrl && (

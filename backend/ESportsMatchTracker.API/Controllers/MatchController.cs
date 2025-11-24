@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using ESportsMatchTracker.API.Services;
+using ESportsMatchTracker.API.Data;
+using ESportsMatchTracker.API.Models;
 
-namespace ESportsMatchTracker.API;
+namespace ESportsMatchTracker.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

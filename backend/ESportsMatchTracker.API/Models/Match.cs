@@ -1,4 +1,4 @@
-namespace ESportsMatchTracker.API;
+namespace ESportsMatchTracker.API.Models;
 
 public class Match
 {
@@ -21,16 +21,4 @@ public class Match
     
     // For ended matches
     public string? Winner { get; set; }
-}
-
-public class MatchDetails
-{
-    public string Format { get; set; } = string.Empty;
-    public List<string> MapPool { get; set; } = new();
-}
-
-public class MapScore
-{
-    public string Map { get; set; } = string.Empty;
-    public Dictionary<string, int> Score { get; set; } = new();
 }

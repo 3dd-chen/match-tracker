@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace ESportsMatchTracker.API;
+namespace ESportsMatchTracker.API.Data;
 
 public class AppDbContext : DbContext
 {

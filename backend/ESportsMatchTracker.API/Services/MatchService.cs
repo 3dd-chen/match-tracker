@@ -1,11 +1,7 @@
 using System.Text.Json;
+using ESportsMatchTracker.API.Models;
 
-namespace ESportsMatchTracker.API;
-
-public interface IMatchService
-{
-    Task<List<Match>> GetAllMatchesAsync();
-}
+namespace ESportsMatchTracker.API.Services;
 
 public class MatchService : IMatchService
 {

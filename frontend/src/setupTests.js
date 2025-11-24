@@ -3,3 +3,9 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+// Mock HTMLMediaElement methods not implemented in JSDOM
+window.HTMLMediaElement.prototype.load = () => { /* do nothing */ };
+window.HTMLMediaElement.prototype.play = () => { return Promise.resolve(); };
+window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
+window.HTMLMediaElement.prototype.addTextTrack = () => { /* do nothing */ };

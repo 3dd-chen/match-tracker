@@ -1,4 +1,4 @@
-namespace ESportsMatchTracker.API;
+namespace ESportsMatchTracker.API.Data;
 
 public class ApiCallLog
 {
