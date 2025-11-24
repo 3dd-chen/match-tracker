@@ -10,7 +10,7 @@ describe('MatchList Component', () => {
 
     test('renders list title', () => {
         render(<MatchList matches={mockMatches} title="Live Matches" />);
-        expect(screen.getByText('Live Matches')).toBeInTheDocument();
+        expect(screen.getByRole('heading', { name: 'Live Matches' })).toBeInTheDocument();
     });
 
     test('renders correct number of match cards', () => {

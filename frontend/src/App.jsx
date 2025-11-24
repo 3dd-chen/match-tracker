@@ -50,6 +50,8 @@ function App() {
               title="LIVE EVENTS"
               onMatchClick={setSelectedMatch}
               glitch={true}
+              type="live"
+              initialCollapsed={false}
             />
           )}
           {upcomingMatches.length > 0 && (
@@ -57,6 +59,8 @@ function App() {
               matches={upcomingMatches}
               title="UPCOMING OPERATIONS"
               onMatchClick={setSelectedMatch}
+              type="upcoming"
+              initialCollapsed={true}
             />
           )}
           {endedMatches.length > 0 && (
@@ -64,6 +68,8 @@ function App() {
               matches={endedMatches}
               title="MISSION LOGS"
               onMatchClick={setSelectedMatch}
+              type="ended"
+              initialCollapsed={true}
             />
           )}
         </>
